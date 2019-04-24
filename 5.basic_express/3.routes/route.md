@@ -18,7 +18,7 @@ Router.method takes 2 arguments.
 
   We could define 2 routes on same path but with different method. They are treated as different routes. We will use these conventions very often.
   ```js
-  router.get('/ligin', callback => {});
+  router.get('/login', callback => {});
   router.post('/login', callback => {});
   ```
 

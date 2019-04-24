@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>altCampus bookStore</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1><a href="/">altCampus bookStore</a></h1>
+      </header>
+      <section>
+        <div class="book-container">
+          <% data.forEach(book => { %>
+            <div class="book">
+              <p><span>Title: </span><a href="/books/<%= book._id %>/bookdetails"><%= book.title %></a></p>
+              <p><span>Author: </span> <%= book.author %></p>
+              <!-- <p><span>Description: </span><%= book.description %></p> -->
+              <p><span>Tags: </span><%= book.tags %></p>
+              <p><span>Likes: </span><%= book.likes %></p>
+              <p><span>createdAt: </span><%= book.created %></p>
+              <button><a href="/form/<%= book._id %>/delete">Delete</a></button>
+              <button><a href="/form/<%= book._id %>/edit">Edit</a></button>
+            </div>
+          <% }) %>
+        </div>
+
+      </section>
+    </main>
+  </body>
+</html>

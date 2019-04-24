@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>altCampus bookStore</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1><a href="/">altCampus bookStore</a></h1>
+      </header>
+      <section class="book-details-section wrapper">
+        <div class="book-details">
+					<p>Title:</p>
+					<p><%= book.title %></p>
+					<p>Author:</p>
+					<p><%= book.author %></p>
+					<p>Description:</p>
+					<p><%= book.description %></p>
+					<p>Tags:</p>
+					<p><%= book.tags %></p>
+					<p>Likes:</p>
+					<p><%= book.likes %></p>
+        </div>
+
+      </section>
+    </main>
+  </body>
+</html>
