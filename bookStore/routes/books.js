@@ -7,10 +7,13 @@ var Store = require('../models/Store');
 
 router.get('/:id/bookdetails', function(req, res, next) {
   id = req.params.id;
- Store.findOne({_id: id}, (err, book) => {
-   if(err) next(err);
-   res.render('books', {book: book});
- })
+ Store.findOne({_id: id})
+  .populate('author')
+  .exec((err, book) => {
+    if(err) next(err);
+    console.log('...................books hai');
+    res.render('books', {book: book});
+  })
 })
 
 module.exports = router;

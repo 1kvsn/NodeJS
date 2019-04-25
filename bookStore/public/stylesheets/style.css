@@ -226,6 +226,7 @@ header a {
 /* Book Details Page Styles */
 
 .book-details-section {
+	min-height: 350px;
 	/* background: rgb(2,0,36);
 	background: linear-gradient(90deg, rgba(2,0,36,0.8435749299719888) 0%, rgba(172,38,111,1) 56%, rgba(0,134,255,0.7987570028011204) 100%); */
 	/* background: rgb(238,174,202);
@@ -234,7 +235,7 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 	background: radial-gradient(circle, rgba(238,174,202,0.8155637254901961) 0%, rgba(148,187,233,1) 100%);
 	padding: 30px;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 }
 
 .book-details {
@@ -267,8 +268,10 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 	height: 300px;
 }
 
-
-
+/* All Author Page Styles */
+.author-all {
+	border: 0.1px solid;
+}
 
 
 

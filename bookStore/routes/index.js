@@ -6,10 +6,14 @@ var Store = require('../models/Store');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  Store.find({}, (err, data) => {
-    if(err) next(err);
-    res.render('index', {data: data});
-  });
+  Store
+  .find({})
+  .populate('author')
+  .exec((err, books) => {
+    if(err) return next(err);
+    console.log(books)
+    res.render('index', {books: books});
+  })
 });
 
 module.exports = router;

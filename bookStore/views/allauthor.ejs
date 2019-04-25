@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>bookStore</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1><a href="/">bookStore</a></h1>
+      </header>
+      
+      <section>
+        <% authors.forEach(author => { %>
+          <div class="author-all">
+            <p>Name: <%= author.name %></p>
+            <p>Description: <%= author.description %></p>
+            <p>Books: <%= author.books.length %></p>
+          </div>
+            <% }) %>
+
+      </section>
+    </main>
+  </body>
+</html>

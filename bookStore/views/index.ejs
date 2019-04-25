@@ -11,10 +11,10 @@
       </header>
       <section>
         <div class="book-container">
-          <% data.forEach(book => { %>
+          <% books.forEach(book => { %>
             <div class="book">
               <p><span>Title: </span><a href="/books/<%= book._id %>/bookdetails"><%= book.title %></a></p>
-              <p><span>Author: </span> <%= book.author %></p>
+              <p><span>Author: </span> <%= book.author.name %></p>
               <!-- <p><span>Description: </span><%= book.description %></p> -->
               <p><span>Tags: </span><%= book.tags %></p>
               <p><span>Likes: </span><%= book.likes %></p>
