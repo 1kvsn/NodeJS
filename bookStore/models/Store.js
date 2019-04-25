@@ -7,8 +7,8 @@ var storeSchema = new Schema({
 	description: String,
 	tags: String,
 	likes: Number,
-	author: String,
-	created: {type: Date, default: new Date().toLocaleDateString()} 
+	author:{type: Schema.Types.ObjectId, ref: 'Author'},
+	created: {type: Date, default: new Date().toLocaleDateString()},
 })
 
 // Each Schema requires a model.

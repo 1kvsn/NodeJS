@@ -7,23 +7,36 @@
   <body>
     <main>
       <header>
-        <h1><a href="/">altCampus bookStore</a></h1>
+        <h1><a href="/">bookStore</a></h1>
       </header>
-      <section class="book-details-section wrapper">
+      <section class="book-details-section">
         <div class="book-details">
-					<p>Title:</p>
-					<p><%= book.title %></p>
-					<p>Author:</p>
-					<p><%= book.author %></p>
-					<p>Description:</p>
-					<p><%= book.description %></p>
-					<p>Tags:</p>
-					<p><%= book.tags %></p>
-					<p>Likes:</p>
-					<p><%= book.likes %></p>
+          <p class="book-title"><%= book.title %></p>
+          <p class="book-author"><%= book.author %>Test Author</p>
+          <p class="book-tags"><%= book.tags %></p>
         </div>
+        <div class="book-description">
+          <p><%= book.description %></p>
+        </div>
+        <img src="https://en.es-static.us/upl/2019/03/teacup-300x300.jpg" alt="book-cover" />
 
       </section>
     </main>
   </body>
 </html>
+
+<!-- <section class="book-details-section wrapper">
+    <div class="book-details">
+      <p>Title:</p>
+      <p><%= book.title %></p>
+      <p>Author:</p>
+      <p><%= book.author %></p>
+      <p>Description:</p>
+      <p><%= book.description %></p>
+      <p>Tags:</p>
+      <p><%= book.tags %></p>
+      <p>Likes:</p>
+      <p><%= book.likes %></p>
+    </div>
+
+  </section> -->

@@ -8,7 +8,6 @@ var Store = require('../models/Store');
 router.get('/', function(req, res, next) {
   Store.find({}, (err, data) => {
     if(err) next(err);
-    console.log(data, 'inside index');
     res.render('index', {data: data});
   });
 });

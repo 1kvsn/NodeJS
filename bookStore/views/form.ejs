@@ -7,14 +7,18 @@
   <body>
     <main>
       <header>
-        <h1><a href="/">altCampus bookStore</a></h1>
+        <h1><a href="/">bookStore</a></h1>
       </header>
       <!-- Form Section -->
       <section>
         <div class="form-container">
           <form action="/form" method="POST" class="form">
             <input type="text" name="title" placeholder="Enter a book title">
-            <input type="text" name="author" placeholder="author name">
+            <select name="author">
+              <% authors.forEach(author => { %>
+                <option value="<%= author._id %>" ><%= author.name %></option>
+              <% }) %>
+            </select>
             <textarea rows="4" cols="1" type="text" name="description" placeholder="enter book description"></textarea>
             <input type="text" name="tags" placeholder="enter tags">
             <input type="number" name="likes" placeholder="enter likes">

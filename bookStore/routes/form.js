@@ -1,20 +1,27 @@
 var express = require('express');
 var router = express.Router();
+var Author = require('../models/Author');
 
 // Importing the model here which was imported in app.js. Notice the double dot.
 var Store = require('../models/Store');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('form');
+	Author.find({}, "name", (err, authors) => {
+		// console.log(err, authors);
+		res.render('form', {authors});
+	})
 });
 
 router.post('/', function(req, res, next) {
-	console.log(req.body);
-	Store.create(req.body, (err, data) => {
+	// console.log(req.body);
+	Store.create(req.body, (err, book) => {
 		if(err) next(err);
-		console.log(data, 'inside form');
-		res.redirect('/');
+		// console.log(data, 'inside form');
+		Author.findByIdAndUpdate(book.author, {$push: {books: book._id}}, {new: true}, (err, author) => {
+			console.log(err, author); 
+			res.redirect('/');
+		})
 	})
 })
 
