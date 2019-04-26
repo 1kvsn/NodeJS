@@ -3,16 +3,20 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/books');
 var formRouter = require('./routes/form');
 var authorRouter = require('./routes/author');
+var userRouter = require('./routes/user');
 
 var app = express();
 // Importing the model. After creating a model, app.js needs to be aware of it.
 var Store = require('./models/Store');
 var Author = require('./models/Author');
+var User = require('./models/User');
 
 // Importing Mongoose
 var mongoose = require('mongoose');
@@ -29,12 +33,19 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: 'dkjhgdfkjghdfhgdfkhghf',
+  resave: false,
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/books', booksRouter);
 app.use('/form', formRouter);
 app.use('/authors', authorRouter);
+app.use('/user', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

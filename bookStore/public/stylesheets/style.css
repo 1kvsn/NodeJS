@@ -157,13 +157,21 @@ h6 {
 
 header{
 	/* background-color: rgba(228, 106, 106, 0.562); */
-	text-align: center;
+display: flex;
+justify-content: center;	
 		
+}
+header img {
+	width: 20px;
+	height: 20px;
+	color: black;
+	margin-right: 10px;
 }
 
 header h1 {
 	font-size: 16px;
 	color: rgb(12, 11, 11);
+
 }
 
 header a {
@@ -273,6 +281,30 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 	border: 0.1px solid;
 }
 
+ /* Footer Styles */
+.footer {
+		padding: 10px;
+		position: fixed;
+		bottom: 0;
+		text-align: center;
+		font-size: 12px;
+	}
+
+.footer div {
+		font-size: 6px;
+	}
+
+.footer p a {
+		color: #30ba67;
+		text-decoration: none;
+	}
+
+	/* user registration styles */
+.form-header {
+	margin: 30px;
+	text-align: center;
+	font-size: 18px;
+}
 
 
 

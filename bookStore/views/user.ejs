@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>altCampus bookStore</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="http://localhost:3000/images/open-book.svg" alt="book">
+        <h1>
+          <a href="/">bookStore</a>
+        </h1>
+      </header>
+      <!-- Form Section -->
+      <section>
+				<div>
+					<h3 class="form-header">Sign up for an account</h3>
+				</div>
+				<div class="form-container">
+					<form class="form" action="/user" method="POST">
+						<input autofocus required type="text" name="name" placeholder="Enter your name">
+						<input required type="text" name="email" placeholder="Enter your email">
+						<input required type="password" name="password" placeholder="Enter  password">
+						<button type="submit">Sign Up</button>
+					</form>
+				</div>
+      </section>
+    </main>
+  </body>
+</html>
