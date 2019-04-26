@@ -9,9 +9,9 @@ router.get('/register', (req, res) => {
 
 router.post('/', (req, res, next) => {
 	User.create(req.body, (err, user) => {
-		if(err) return res.redirect('/user/register');
+		if(err) return res.redirect('/users/register');
 		console.log(user, '......................................user created here');
-		res.redirect('/user/login');
+		res.redirect('/users/login');
 	})
 });
 
@@ -24,7 +24,7 @@ router.post('/login', (req, res, next) => {
 	var {email, password} = req.body;
 	User.findOne({email: email}, (err, user) => {
 		console.log(err, user)
-		if(err) return  res.status(500).redirect('/user/login');
+		if(err) return  res.status(500).redirect('/users/login');
 		if(!user) return res.status(400).send('No user found');
 		user.comparePassword(password, (err, isMatch) => {
 			console.log(err, isMatch)
@@ -34,7 +34,6 @@ router.post('/login', (req, res, next) => {
 			req.session.userId = user._id;
 			res.redirect('/');
 		})
-		// res.redirect('/index');
 	})
 })
 

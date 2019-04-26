@@ -10,11 +10,11 @@ var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/books');
 var formRouter = require('./routes/form');
 var authorRouter = require('./routes/author');
-var userRouter = require('./routes/user');
+var userRouter = require('./routes/users');
 
 var app = express();
 // Importing the model. After creating a model, app.js needs to be aware of it.
-var Store = require('./models/Store');
+var Book = require('./models/Book');
 var Author = require('./models/Author');
 var User = require('./models/User');
 
@@ -41,11 +41,12 @@ app.use(session({
 }))
 app.use(express.static(path.join(__dirname, 'public')));
 
+//The below are not rendering the ejs files. They are merely specifying the routes at which we want to handle stuff.
 app.use('/', indexRouter);
 app.use('/books', booksRouter);
 app.use('/form', formRouter);
 app.use('/authors', authorRouter);
-app.use('/user', userRouter);
+app.use('/users', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

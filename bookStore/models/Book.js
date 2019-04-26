@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // Creating a schema
-var storeSchema = new Schema({
+var bookSchema = new Schema({
 	title: String,
 	description: String,
 	tags: String,
@@ -12,7 +12,9 @@ var storeSchema = new Schema({
 })
 
 // Each Schema requires a model.
-var Store = mongoose.model('Store', storeSchema);
+var Book = mongoose.model('Book', bookSchema);
 
 // Exporting the model
-module.exports = Store;
+module.exports = Book;
+
+// Route name: Plural
