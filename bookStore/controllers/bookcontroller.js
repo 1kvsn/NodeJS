@@ -7,7 +7,6 @@ exports.listBooks = (req, res, next) => {
   .populate('author')
   .exec((err, book) => {
     if(err) next(err);
-    console.log('...................books hai');
     res.render('books', {book: book});
   })
 };

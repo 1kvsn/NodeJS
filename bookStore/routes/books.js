@@ -7,7 +7,7 @@ var router = express.Router();
 // require controller module
 var book_controller = require('../controllers/bookcontroller');
 
-
+//List all books
 router.get('/:id/bookdetails', book_controller.listBooks);
 
 module.exports = router;
