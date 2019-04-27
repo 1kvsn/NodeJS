@@ -2,18 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 // Importing the model here which was imported in app.js. Notice the double dot.
-var Book = require('../models/Book');
+// var Book = require('../models/Book');
+
+// require controller module
+var book_controller = require('../controllers/bookcontroller');
 
 
-router.get('/:id/bookdetails', function(req, res, next) {
-  id = req.params.id;
- Book.findOne({_id: id})
-  .populate('author')
-  .exec((err, book) => {
-    if(err) next(err);
-    console.log('...................books hai');
-    res.render('books', {book: book});
-  })
-})
+router.get('/:id/bookdetails', book_controller.listBooks);
 
 module.exports = router;
