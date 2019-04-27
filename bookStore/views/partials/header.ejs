@@ -1,0 +1,7 @@
+<% if(user) { %>
+	<h3><%= user.name %></h3>
+	<a href="/users/logout">Logout</a>
+<% } else { %>
+	<a href="/users/login">LOgin</a>
+	<a href="/users/register">Register</a>
+<% } %>

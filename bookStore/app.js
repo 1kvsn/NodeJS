@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+var authController = require('./controllers/authController');
 
 var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/books');
@@ -40,6 +41,8 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(authController.sessions);
 
 //The below are not rendering the ejs files. They are merely specifying the routes at which we want to handle stuff.
 app.use('/', indexRouter);

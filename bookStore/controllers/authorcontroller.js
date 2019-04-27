@@ -2,6 +2,7 @@ var Author = require('../models/Author');
 
 //Renders new Author Form
 exports.newAuthorForm = (req, res) => {
+  console.log(req.user);
   res.render('addauthor');
 }
 

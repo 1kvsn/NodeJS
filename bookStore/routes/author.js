@@ -9,9 +9,13 @@ var router = express.Router();
 
 //Requiring Author controller file.
 var author_controller = require('../controllers/authorcontroller');
+var auth_controller = require('../controllers/authController');
 
 // Route creating new author
-router.get('/new', author_controller.newAuthorForm);
+router.get('/new', 
+  auth_controller.isUserLogged, 
+  author_controller.newAuthorForm
+);
 
 // Model.Create creates new author. The first argument contains the data which it needs to create the author.
 router.post('/', author_controller.createAuthor);
