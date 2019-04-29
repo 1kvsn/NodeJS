@@ -3,7 +3,7 @@ var Book = require('../models/Book');
 
 exports.home = (req, res, next) => {
   //If there is a session and if that session has an userID, then show list of all books.at home page.
-  console.log(req.session);
+  // console.log(req.session);
     Book
     .find({})
     .populate('author')

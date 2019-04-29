@@ -11,14 +11,9 @@
         <h1>
           <a href="/">bookStore</a>
         </h1>
-
-        <% include partials/header.ejs %>
-        
       </header>
       <section>
-        <nav>
-          <button class="logout"><a href="/users/logout" >logout</a></button>
-        </nav>
+        <% include partials/header.ejs %>
       </section>
       <section>
         <div class="book-container">
@@ -28,7 +23,6 @@
               <p><span>Author: </span> <%= book.author.name %></p>
               <p><span>Tags: </span><%= book.tags %></p>
               <p><span>Likes: </span><%= book.likes %></p>
-              <p><span>createdAt: </span><%= book.created %></p>
               <button><a href="/form/<%= book._id %>/delete">Delete</a></button>
               <button><a href="/form/<%= book._id %>/edit">Edit</a></button>
             </div>
@@ -40,7 +34,11 @@
         <footer class="footer">
           <p>Made with &#9829; @ <a href="https://altcampus.io" target="_blank">AltCampus</a>
           </p>
-          <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+          <div>Icons made by 
+            <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from 
+            <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by 
+            <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+          </div>
         </footer>
       </section>
     </main>

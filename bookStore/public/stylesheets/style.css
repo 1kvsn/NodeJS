@@ -247,8 +247,8 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 }
 
 .book-details {
-		min-width: 300px;
-		margin: 10px;
+	min-width: 300px;
+	margin: 10px;
 }
 .book-title {
 	color: #fff;
@@ -283,20 +283,20 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 
  /* Footer Styles */
 .footer {
-		padding: 10px;
-		position: fixed;
-		bottom: 0;
-		text-align: center;
-		font-size: 12px;
+	padding: 10px;
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	font-size: 12px;
 	}
 
 .footer div {
-		font-size: 6px;
+	font-size: 6px;
 	}
 
 .footer p a {
-		color: #30ba67;
-		text-decoration: none;
+	color: #30ba67;
+	text-decoration: none;
 	}
 
 	/* user registration styles */
@@ -306,6 +306,21 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 	font-size: 18px;
 }
 
+.nav {
+	display: flex;
+	justify-content: space-around;
+}
+
+.logged-user {
+	font-size: 12px;
+}
+
+.btn {
+	background: none;
+	font-size: 14px;
+	margin-right: 5px;
+	border: 0.5px solid lightcoral;
+}
 
 
 

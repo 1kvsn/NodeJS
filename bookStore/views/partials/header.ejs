@@ -1,7 +1,12 @@
-<% if(user) { %>
-	<h3><%= user.name %></h3>
-	<a href="/users/logout">Logout</a>
-<% } else { %>
-	<a href="/users/login">LOgin</a>
-	<a href="/users/register">Register</a>
-<% } %>
+<nav class="nav">
+	<a href="/authors/new">Add Author</a>
+	<a href="/authors">Authors</a>
+	<% if(user) { %>
+		<a href="/form">Add book</a>
+		<h3 class="logged-user"><%= user.name %></h3>
+		<a class="logout-btn btn" href="/users/logout">Logout</a>
+	<% } else { %>
+		<a class="logout-btn btn " href="/users/login">Login</a>
+		<a class="register-btn btn" href="/users/register">Register</a>
+	<% } %>
+</nav>

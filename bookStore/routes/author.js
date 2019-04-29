@@ -23,4 +23,6 @@ router.post('/', author_controller.createAuthor);
 // Showing all authors
 router.get('/', author_controller.showAllAuthor);
 
+router.get('/', author_controller.authorDetails)
+
 module.exports = router;
