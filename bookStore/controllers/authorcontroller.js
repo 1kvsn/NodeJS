@@ -25,6 +25,10 @@ exports.showAllAuthor = (req, res) => {
 };
 
 exports.authorDetails = (req, res) => {
-  
+  Author.find({}).exec((err, authors) => {
+    if(err) return next(err);
+    console.log(authors, 'this is authors coming in authorDetails');
+    res.render('author', {authors})
+  })
 }
 

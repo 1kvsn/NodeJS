@@ -6,18 +6,22 @@ var logger = require('morgan');
 var session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 var authController = require('./controllers/authController');
+var passport = require('passport');
 
 var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/books');
 var formRouter = require('./routes/form');
 var authorRouter = require('./routes/author');
 var userRouter = require('./routes/users');
+var authRouter = require('./routes/auth');
 
 var app = express();
 // Importing the model. After creating a model, app.js needs to be aware of it.
-var Book = require('./models/Book');
-var Author = require('./models/Author');
-var User = require('./models/User');
+
+require('./module/passport');
+require('./models/Book');
+require('./models/Author');
+require('./models/User');
 
 // Importing Mongoose
 var mongoose = require('mongoose');
@@ -40,12 +44,21 @@ app.use(session({
   saveUninitialized: true,
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
+
+// Passport authentication middleware. Comes after session middleware.
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(authController.sessions);
 
+
 //The below are not rendering the ejs files. They are merely specifying the routes at which we want to handle stuff.
 app.use('/', indexRouter);
+app.use('/auth', authRouter);
 app.use('/books', booksRouter);
 app.use('/form', formRouter);
 app.use('/authors', authorRouter);
