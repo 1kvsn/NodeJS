@@ -2,7 +2,7 @@ var Book = require('../models/Book');
 
 //Display list of all the books.
 exports.listBooks = (req, res, next) => {
-  id = req.params.id;
+  var id = req.params.id;
  Book.findOne({_id: id})
   .populate('author')
   .exec((err, book) => {
@@ -10,3 +10,4 @@ exports.listBooks = (req, res, next) => {
     res.render('books', {book: book});
   })
 };
+

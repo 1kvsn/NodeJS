@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>altCampus bookStore</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <main>
-      <header>
-        <img src="http://localhost:3000/images/open-book.svg" alt="book">
-        <h1>
-          <a href="/">bookStore</a>
-        </h1>
-        
-      </header>
-      <section>
-        <div>
-					<h2>Author Info</h2>
-				</div>
-				<div>
-					<p>Name: </p>
-					<p>Description</p>
-					<p>Age: </p>
-					<p>Authored Books: </p>
-				</div>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="/stylesheets/style.css">
+		<title>bookStore</title>
+	</head>
+	<body>
+		<main>
+			<header>
+				<img src="http://localhost:3000/images/open-book.svg" alt="book">
+				<h1>
+					<a href="/">bookStore</a>
+				</h1>
+			</header>
 
-      </section>
-    </main>
-  </body>
+			<% include partials/authorheader.ejs %>
+
+			<section class="author-page-heading">
+				<h2>Author Dashboard</h2>
+				<a href="/authors/books/create" >Add Book</a>
+			</section>
+			<!-- Author Books -->
+			<section class="author-books-container">
+				<% author.books.forEach(book => { %>
+				<div class="author-books">
+					<p>Title: <%= book.title %></p>
+					<p>Description: <%= book.description %></p>
+					<p>Tags: <%= book.tags %></p>
+					<p>Likes: <%= book.likes %></p>
+					<a class="author-delete" href="/authors/books/<%= book.id %>/delete" >|x|</a>
+					<a class="author-edit" href="/authors/books/<%= book._id %>/edit" >edit</a>
+				</div>
+					<% }) %>
+			</section>
+		</main>
+	</body>
 </html>

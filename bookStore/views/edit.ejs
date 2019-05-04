@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>altCampus bookStore</title>
+    <title>bookStore</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
@@ -15,13 +15,11 @@
       <!-- Form Section -->
       <section>
         <div class="form-container">
-          <form action="/form/:id/update" method="POST" class="form">
-            <input type="text" name="title" placeholder="Enter a book title"  value="<%= book.title %>">
-            <input type="text" name="author" placeholder="author name" value="<%= book.author %>">
+          <form action="/authors/books/<%= book.id %>/update" method="POST" class="form">
+            <input type="text" name="title" placeholder="Enter a book title" value="<%= book.title %>">
             <textarea rows="4" cols="1" type="text" name="description" placeholder="enter book description"> <%= book.description %></textarea>
             <input type="text" name="tags" placeholder="enter tags" value="<%= book.tags %>">
             <input type="number" name="likes" placeholder="enter likes" value="<%= book.likes %>">
-            <input type="date" name="created" value="<%= book.created %>">
             <input type="submit" value="Submit">
           </form>
         </div>

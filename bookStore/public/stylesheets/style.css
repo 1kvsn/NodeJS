@@ -308,11 +308,18 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 
 .nav {
 	display: flex;
-	justify-content: space-around;
+	justify-content: flex-end;
 }
 
+.in-out {
+
+}
+.logged-user-container {
+	display: flex;
+}
 .logged-user {
 	font-size: 12px;
+	margin-right: 5px;
 }
 
 .btn {
@@ -322,37 +329,35 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 	border: 0.5px solid lightcoral;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* body {
-	background-color: rgba(250, 241, 255, 0.904);
+.author-login-container {
+	display: flex;
+	align-items: center;
 }
-.book-details {
-	display: grid;
-	grid-template-columns: 150px 1fr;
-	grid-column-gap: 20px;
-	border: 0.1px solid;
+.author-page-heading h2 {
+	font-size: 22px;
+	text-align: center;
+}
+.author-books-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 35px;
+}
+.author-books {
 	padding: 10px;
-	font-family: 'Courier New', Courier, monospace;
-
+	border: 1px solid;
+	margin-left: 5px;
 }
-.book-details p {
-	margin: 2px;
-	
-} */
+.author-books a {
+	color: #fff;
+}
+.author-books:hover .author-delete {
+	color: red;
+}
+.author-books:hover .author-edit {
+	color: green;
+}
+
+
 
 
 

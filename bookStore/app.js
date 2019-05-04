@@ -54,6 +54,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(authController.sessions);
+app.use(authController.authorSessions);
 
 
 //The below are not rendering the ejs files. They are merely specifying the routes at which we want to handle stuff.

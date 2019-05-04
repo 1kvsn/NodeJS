@@ -1,0 +1,9 @@
+<nav class="nav">
+<% if(author) { %>
+		<div class="author-login-container">
+			<p>Hello! <%= author.name %> </p>
+			<img width="50px" height="50px" src="<%= author ? author.image : null %>">
+		</div>
+		<a href="/users/logout">log out</a>
+<% } %>
+	</nav>

@@ -11,11 +11,43 @@ passport.use(new GitHubStrategy({
   callbackURL: "http://localhost:3000/auth/github/callback",
 },
 function(accessToken, refreshToken, profile, cb) {
-  Author.findOne({})
-  return console.log(profile);
-  
+  //the cb parameter above can also be written as done.
+  console.log('.........callback function fired this');
+  var email = profile.emails[0].value;
+  Author.findOne({
+    email: email
+  }).then((author, err) => {
+    if(author) {
+      //user found in database
+      cb(null, author);
+    } else {
+      //this is a new user so let's create a new entry for them.
+      Author.create({
+        name: profile.displayName,
+        email: profile.emails[0].value,
+        image: profile.photos[0].value
+      }, (err, author) => {
+        if(err) cb(err);
+        //Sends the complete Author object to the serializer.
+        cb(null, author);
+      })
+    }
+  });
   }
 ));
+
+passport.serializeUser((user, done) => {
+  //We're sending the user.id in the cookie
+  done(null, user._id)
+});
+
+//As we've sent the user.id in the cookie, the deSerializer will retrieve just the id from the cookie when the cookie comes back to us from the browser.
+passport.deserializeUser((id, done) => {
+  Author.findById(id, (err, author) => {
+    if(err) done(err);
+    done(null, author);
+  })
+})
 
 
 

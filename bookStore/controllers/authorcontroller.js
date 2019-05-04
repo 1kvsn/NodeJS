@@ -1,34 +1,68 @@
 var Author = require('../models/Author');
+var Book = require('../models/Book');
 
-//Renders new Author Form
-exports.newAuthorForm = (req, res) => {
-  // console.log(req.user);
-  res.render('addauthor');
-}
-
-//creating new Author
-exports.createAuthor = (req, res, next) => {
-  Author.create(req.body, (err, author) => {
-    if(err) return next(err);
-    res.redirect('/');
-  })
-};
-
-//Showing all authors
-exports.showAllAuthor = (req, res) => {
+//Displays books authored by logged-in author
+exports.myBooks = (req, res, next) => {
   Author
-  .find({})
-  .exec((err, authors) => {
+  .findById({_id: req.session.passport.user})
+  .populate('books')
+  .exec((err, author) => {
     if(err) return next(err);
-    res.render('allauthor', {authors});
-  })
+    res.render('author', {author});
+  });
+}
+
+exports.editBook = (req, res, next) => {
+  var id = req.params.id;
+  Book.findOne({_id: id}, (err, book) => {
+    if(err) return next(err);
+    res.render('edit', {book: book});
+  });
+}
+
+exports.updateBook = (req, res, next) => {
+	var id = req.params.id;
+	Book.findByIdAndUpdate(id, req.body, (err, book) => {
+		if(err) return next(err);
+		res.redirect('/authors/mybooks');
+	})
 };
 
-exports.authorDetails = (req, res) => {
-  Author.find({}).exec((err, authors) => {
+exports.deleteBook = (req, res, next) => {
+	var id = req.params.id;
+	Book.findByIdAndDelete(id, (err, book) => {
+		if(err) return next(err);
+		res.redirect('/authors/mybooks');
+	})
+};
+
+exports.new = (req, res, next) => {
+  Author.find({}, 'name', (err, author) => {
     if(err) return next(err);
-    console.log(authors, 'this is authors coming in authorDetails');
-    res.render('author', {authors})
+    res.render('form');
   })
 }
 
+//Handles POST request to create a new Book.
+exports.createBook = (req, res, next) => {
+	Book.create(req.body, (err, book) => {
+		if(err) return next(err);
+		Author.findByIdAndUpdate(book.author, {$push: {books: book._id}}, {new: true}).populate('author', 'name').exec((err, author) => {
+			if(err) return next(err);
+			res.redirect('/authors/mybooks');
+		})
+	})
+};
+
+exports.logout = (req, res) => {
+	req.logout();
+  res.redirect('/');
+	};
+
+
+// exports.authorDetails = (req, res, next) => {
+//   Author.find({}).exec((err, authors) => {
+//     if(err) return next(err);
+//     res.render('/', {authors});
+//   })
+// }
