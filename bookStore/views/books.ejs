@@ -12,6 +12,9 @@
           <a href="/">bookStore</a>
         </h1>
       </header>
+      <section>
+        <% include partials/header.ejs %>
+      </section>
       <section class="book-details-section">
         <div class="book-details">
           <p class="book-title"><%= book.title %></p>
@@ -21,7 +24,12 @@
         <div class="book-description">
           <p><%= book.description %></p>
         </div>
-
+        <form class="book-details-form" action="" method="POST">
+          <p>Quantity: </p>
+          <input class="book-quantity" name="quantity" type="number" value="1" min="0" >
+          <input name="bookId" type="hidden" value="<%= book._id %>" >
+          <input class="addcart-btn" type="submit" value="Add to Cart">
+        </form>
       </section>
     </main>
   </body>

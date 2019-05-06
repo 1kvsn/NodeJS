@@ -1,4 +1,6 @@
 var User = require('../models/User');
+var Cart = require('../models/Cart');
+var Product = require('../models/Product');
 
 //renders register form
 exports.registerForm = (req, res) => {
@@ -8,10 +10,18 @@ exports.registerForm = (req, res) => {
 //create User upon form submission
 exports.createUser = (req, res, next) => {
 	User.create(req.body, (err, user) => {
+		console.log(user);
 		if(err) return res.redirect('/users/register');
-		// console.log(user, '..........user created here');
-		res.redirect('/users/login');
-	})
+		Cart.create({userId: user._id}, (err, cart) => {
+			console.log(cart);
+			if(err) return next(err);
+			User.findByIdAndUpdate(user._id, {cart: cart._id}, {new: true}).exec((err, user) => {
+				if(err) return next(err);
+				console.log(user, '..........user created here');
+				res.redirect('/users/login');
+			})
+		})
+	});
 };
 
 //User Login Form
@@ -36,6 +46,14 @@ exports.authenticateUser = (req, res, next) => {
 		})
 	})
 };
+
+exports.addToCart = (req, res, next) => {
+	console.log(req.user);
+
+	// Product.create(req.body, (err, product) => {
+	// 	if(err) return next(err);
+	// });
+}
 
 //Logs out the user
 exports.logout = (req, res) => {

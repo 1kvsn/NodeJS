@@ -21,6 +21,10 @@ var userSchema = new Schema({
 		type: String,
 		required: true,
 		minLength: 6,
+	},
+	cart: {
+		type: Schema.Types.ObjectId,
+		ref: 'Cart',
 	}
 	
 })

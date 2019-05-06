@@ -250,6 +250,7 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 	min-width: 300px;
 	margin: 10px;
 }
+
 .book-title {
 	color: #fff;
 	font-weight: bold;
@@ -274,6 +275,22 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 .book-details-section img {
 	width: 250px;
 	height: 300px;
+}
+
+.book-details-form {
+	display: flex;
+}
+
+.book-quantity {
+	height: 25px;
+	width: 45px;
+	padding: 5px;
+	text-align: center;
+}
+.addcart-btn {
+	width: 80px;
+	height: 30px;
+	margin-left: 10px;
 }
 
 /* All Author Page Styles */

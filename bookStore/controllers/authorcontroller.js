@@ -25,7 +25,7 @@ exports.updateBook = (req, res, next) => {
 	Book.findByIdAndUpdate(id, req.body, (err, book) => {
 		if(err) return next(err);
 		res.redirect('/authors/mybooks');
-	})
+	})  
 };
 
 exports.deleteBook = (req, res, next) => {
