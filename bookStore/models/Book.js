@@ -7,7 +7,7 @@ var bookSchema = new Schema({
 	description: String,
 	tags: String,
 	likes: Number,
-	author:{type: Schema.Types.ObjectId, ref: 'Author'},
+	author: {type: Schema.Types.ObjectId, ref: 'Author'},
 	created: {type: Date, default: new Date().toLocaleDateString()},
 })
 

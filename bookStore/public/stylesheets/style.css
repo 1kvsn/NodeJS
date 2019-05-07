@@ -204,6 +204,15 @@ header a {
 }
 
 /* HomePage styles */
+
+.user-action-nav {
+	display: flex;
+	justify-content: flex-end;
+}
+.fa-shopping-cart {
+	margin-left: 10px;
+	font-size: 28px;
+}
 .book-container {
 	display: flex;
 	justify-content: center;
@@ -376,8 +385,34 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 
 
 
+/* Cart Styles */
+.cart-section {
+	max-width: 500px;
+	width: 100%;
+	padding: 10px;
+	margin: 0 auto;
+}
 
+.cart-overview {
+	display: flex;
+	justify-content: space-between;
+}
 
+.cart-overview-total {
+	display: flex;
+}
+
+.cart-items {
+	border: 0.4px solid lightgray;
+	padding: 5px;
+
+}
+
+.cart-items hr {
+	width: 90%;
+	height: 0.5px;
+	background-color: lightgray;
+}
 
 
 

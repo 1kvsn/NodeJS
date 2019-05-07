@@ -3,6 +3,7 @@
   <head>
     <title>bookStore</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   </head>
   <body>
     <main>
@@ -14,6 +15,7 @@
       </header>
       <section>
         <% include partials/header.ejs %>
+        <a href="/users/cart"><i class="fas fa-shopping-cart"></i></a>
       </section>
       <section class="book-details-section">
         <div class="book-details">
@@ -24,7 +26,8 @@
         <div class="book-description">
           <p><%= book.description %></p>
         </div>
-        <form class="book-details-form" action="" method="POST">
+
+        <form class="book-details-form" action="/users/books/buy" method="POST">
           <p>Quantity: </p>
           <input class="book-quantity" name="quantity" type="number" value="1" min="0" >
           <input name="bookId" type="hidden" value="<%= book._id %>" >

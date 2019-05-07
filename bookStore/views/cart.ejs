@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<title>bookStore</title>
+	</head>
+	<body>
+		<main>
+			<header>
+				<img src="http://localhost:3000/images/open-book.svg" alt="book">
+				<h1>
+					<a href="/">bookStore</a>
+				</h1>
+			</header>
+			<section>
+				<% include partials/header.ejs %>
+			</section>
+			<section class="cart-section">
+				<div class="cart-overview">
+					<p>My Shopping Bag (5 Items)</p>
+					<span class="cart-overview-total">
+						<p>Total:</p>
+						<p> $500</p>
+					</span>
+				</div>
+				<!-- Books -->
+				<% cart.products.forEach(product => { %>
+					<div class="cart-items">
+						<div>
+							<p>Title: <%= product.bookId.title %></p>
+							<p>Author: <%= product.bookId.author.name %></p>
+							<p>Quantity: <%= product.quantity %> </p>
+						</div>
+						<hr>
+						<div>
+							<a href="" >Remove</a>
+						</div>
+					</div>
+				<% })%>
+				<button><a href="" >Proceed to Checkout</a></button>
+			</section>
+		</main>
+	</body>
+</html>

@@ -14,7 +14,7 @@ var formRouter = require('./routes/form');
 var authorRouter = require('./routes/author');
 var userRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
-var apiRouter = require('./routes/api/book');
+var apiRouter = require('./routes/api/api');
 
 var app = express();
 // Importing the model. After creating a model, app.js needs to be aware of it.
@@ -65,6 +65,7 @@ app.use('/books', booksRouter);
 app.use('/form', formRouter);
 app.use('/authors', authorRouter);
 app.use('/users', userRouter);
+// app.use('/cart', cartRouter);
 app.use('/api/v1', apiRouter);
 
 // catch 404 and forward to error handler

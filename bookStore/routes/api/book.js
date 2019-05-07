@@ -4,13 +4,9 @@ var router = express.Router();
 var Book = require('../../models/Book');
 //API routes just for book.
 
-//Test Route
-router.get('/', function(req, res) {
-	res.json({ message: 'hooray! welcome to our api!' });   
-});
 
 //List All Books
-router.get('/books', (req, res, next) => {
+router.get('/', (req, res, next) => {
 	Book.find({}, (err, book) => {
 		if(err) return next(err);
 		res.json(book);
@@ -18,7 +14,7 @@ router.get('/books', (req, res, next) => {
 })
 
 //Book Creation\
-router.post('/books', (req, res, next) => {
+router.post('/', (req, res, next) => {
 	Book.create(req.body, (err, book) => {
 		if(err) return next(err);
 		res.json({message: 'Book successfully created!'});
@@ -26,7 +22,7 @@ router.post('/books', (req, res, next) => {
 });
 
 //GET Single Book Info
-router.get('/books/:id', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
 	Book.findById(req.params.id, (err, book) => {
 		if(err) return next(err);
 		res.json(book);
@@ -34,7 +30,7 @@ router.get('/books/:id', (req, res, next) => {
 });
 
 //Update using PUT
-router.put('/books/:id', (req, res, next) => {
+router.put('/:id', (req, res, next) => {
 	Book.findByIdAndUpdate({_id: req.params.id}, req.body, (err, book) => {
 		if(err) return next(err);
 		res.json(book);
@@ -42,7 +38,7 @@ router.put('/books/:id', (req, res, next) => {
 });
 
 //Delete Book
-router.delete('/books/:id', (req, res, next) => {
+router.delete('/:id', (req, res, next) => {
 	Book.findByIdAndDelete({_id: req.params.id}, (err, book) => {
 		if(err) return next(err);
 		res.json({message: 'Book successfully deleted!'});

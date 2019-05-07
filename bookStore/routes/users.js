@@ -15,7 +15,12 @@ router.get('/login', users_controller.userLoginForm);
 //Authenticate User using bcrypt
 router.post('/login', users_controller.authenticateUser);
 
+//Add to Cart button action
+router.post('/books/buy', users_controller.addToCart);
+
 //Logs out the user
 router.get('/logout', users_controller.logout);
+
+router.get('/cart', users_controller.openCart);
 
 module.exports = router;
